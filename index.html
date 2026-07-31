@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARC Raiders — Update 1.17.0 Patch Notes</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&family=Exo+2:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-deep: #0a0c10;
+    --bg-card: #111520;
+    --bg-card-hover: #161c2e;
+    --accent-red: #ff3a3a;
+    --accent-orange: #ff8a2b;
+    --accent-green: #2bff6e;
+    --accent-blue: #3aafff;
+    --accent-purple: #b44aff;
+    --accent-gold: #ffd74a;
+    --text-primary: #e8eaf0;
+    --text-secondary: #8892a8;
+    --text-dim: #4a5270;
+    --border-subtle: #1e2540;
+    --nerf-red: #ff4444;
+    --buff-green: #44ff88;
+    --rarity-common: #9ca3af;
+    --rarity-rare: #6366f1;
+    --rarity-legendary: #f59e0b;
+    --glow-red: 0 0 20px rgba(255, 58, 58, 0.3);
+    --glow-green: 0 0 20px rgba(43, 255, 110, 0.3);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    font-family: 'Exo 2', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Animated background grain */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Scanline effect */
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.03) 2px,
+      rgba(0,0,0,0.03) 4px
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ─── HEADER ─── */
+  .header {
+    padding: 80px 0 60px;
+    text-align: center;
+    position: relative;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-red), transparent);
+  }
+
+  .version-tag {
+    display: inline-block;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent-red);
+    border: 1px solid rgba(255, 58, 58, 0.3);
+    padding: 6px 20px;
+    margin-bottom: 24px;
+    position: relative;
+    animation: pulse-border 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse-border {
+    0%, 100% { border-color: rgba(255, 58, 58, 0.3); }
+    50% { border-color: rgba(255, 58, 58, 0.7); }
+  }
+
+  .header h1 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 8px;
+    background: linear-gradient(180deg, #ffffff 30%, #8892a8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .header .subtitle {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(18px, 3vw, 26px);
+    font-weight: 400;
+    color: var(--text-secondary);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+  }
+
+  /* ─── SECTION HEADERS ─── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 64px 0 12px;
+  }
+
+  .section-header h2 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    white-space: nowrap;
+  }
+
+  .section-header .line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--border-subtle), transparent);
+  }
+
+  .section-intro {
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 800px;
+  }
+
+  /* ─── WEAPON CARDS ─── */
+  .weapon-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 2px;
+    margin-bottom: 32px;
+    overflow: hidden;
+    position: relative;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .weapon-card:hover {
+    border-color: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .weapon-card.nerf { border-left: 3px solid var(--nerf-red); }
+  .weapon-card.buff { border-left: 3px solid var(--buff-green); }
+  .weapon-card.mixed { border-left: 3px solid var(--accent-orange); }
+
+  .weapon-card-top {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 200px;
+  }
+
+  @media (max-width: 700px) {
+    .weapon-card-top {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .weapon-image-wrap {
+    position: relative;
+    background: linear-gradient(135deg, #0d1018 0%, #151b2a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow: hidden;
+  }
+
+  .weapon-image-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at center, rgba(58, 175, 255, 0.04) 0%, transparent 70%);
+  }
+
+  .weapon-image-wrap img {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 16px rgba(0,0,0,0.4));
+    position: relative;
+    z-index: 1;
+    transition: transform 0.4s ease;
+  }
+
+  .weapon-card:hover .weapon-image-wrap img {
+    transform: scale(1.05);
+  }
+
+  .weapon-info {
+    padding: 28px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .weapon-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .weapon-type {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .rarity-badge {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 2px 10px;
+    border-radius: 1px;
+  }
+
+  .rarity-common { color: var(--rarity-common); border: 1px solid rgba(156, 163, 175, 0.3); }
+  .rarity-rare { color: var(--rarity-rare); border: 1px solid rgba(99, 102, 241, 0.3); }
+  .rarity-legendary { color: var(--rarity-legendary); border: 1px solid rgba(245, 158, 11, 0.3); }
+
+  .change-badge {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 2px 10px;
+    border-radius: 1px;
+  }
+
+  .badge-nerf { color: var(--nerf-red); border: 1px solid rgba(255, 68, 68, 0.3); }
+  .badge-buff { color: var(--buff-green); border: 1px solid rgba(68, 255, 136, 0.3); }
+  .badge-mixed { color: var(--accent-orange); border: 1px solid rgba(255, 138, 43, 0.3); }
+
+  .weapon-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  .weapon-desc {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+    font-style: italic;
+    opacity: 0.8;
+  }
+
+  /* ─── CHANGES LIST ─── */
+  .changes-section {
+    padding: 0 32px 28px;
+  }
+
+  .dev-note {
+    background: rgba(58, 175, 255, 0.04);
+    border-left: 2px solid rgba(58, 175, 255, 0.2);
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border-radius: 0 2px 2px 0;
+  }
+
+  .dev-note-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent-blue);
+    margin-bottom: 8px;
+  }
+
+  .dev-note p {
+    color: var(--text-secondary);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .changes-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .change-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 12px 16px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    gap: 16px;
+    border: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .change-row:hover {
+    border-color: var(--border-subtle);
+  }
+
+  .change-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  .change-values {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .val-old {
+    color: var(--text-dim);
+    text-decoration: line-through;
+  }
+
+  .arrow {
+    color: var(--text-dim);
+    font-size: 12px;
+  }
+
+  .val-new.nerf { color: var(--nerf-red); text-shadow: var(--glow-red); }
+  .val-new.buff { color: var(--buff-green); text-shadow: var(--glow-green); }
+
+  .change-row.is-nerf { border-left: 2px solid rgba(255, 68, 68, 0.15); }
+  .change-row.is-buff { border-left: 2px solid rgba(68, 255, 136, 0.15); }
+
+  /* ─── ITEM SECTION ─── */
+  .item-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .item-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 2px;
+    padding: 20px 24px;
+    transition: border-color 0.3s;
+  }
+
+  .item-card:hover {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .item-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+
+  .item-changes {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .item-change {
+    font-size: 13px;
+    color: var(--text-secondary);
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .item-change::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--text-dim);
+  }
+
+  .item-change .val-up { color: var(--nerf-red); font-family: 'Share Tech Mono', monospace; font-size: 12px; }
+  .item-change .val-down { color: var(--buff-green); font-family: 'Share Tech Mono', monospace; font-size: 12px; }
+  .item-change .val-new-craft { color: var(--accent-blue); font-family: 'Share Tech Mono', monospace; font-size: 12px; }
+
+  /* ─── MISC ─── */
+  .energy-clip-note {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-left: 3px solid var(--accent-blue);
+    padding: 16px 24px;
+    margin-bottom: 40px;
+    border-radius: 2px;
+  }
+
+  .energy-clip-note p {
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+
+  .energy-clip-note strong {
+    color: var(--accent-blue);
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    text-align: center;
+    padding: 60px 0 40px;
+    color: var(--text-dim);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    position: relative;
+  }
+
+  .footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-subtle), transparent);
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .weapon-card, .item-card, .energy-clip-note {
+    animation: fade-up 0.6s ease-out both;
+  }
+
+  .weapon-card:nth-child(1) { animation-delay: 0.1s; }
+  .weapon-card:nth-child(2) { animation-delay: 0.2s; }
+  .weapon-card:nth-child(3) { animation-delay: 0.3s; }
+  .weapon-card:nth-child(4) { animation-delay: 0.4s; }
+  .weapon-card:nth-child(5) { animation-delay: 0.5s; }
+
+  .arc-note {
+    background: rgba(255, 215, 74, 0.04);
+    border-left: 2px solid rgba(255, 215, 74, 0.2);
+    padding: 12px 20px;
+    border-radius: 0 2px 2px 0;
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="version-tag">BETA - v1.03</div>
+    <h1>TLOU 2 MP</h1>
+    <div class="subtitle">Patch Notes — Weapon Balance</div>
+  </header>
+
+  <!-- WEAPONS SECTION -->
+  <div class="section-header">
+    <h2>Weapons</h2>
+    <div class="line"></div>
+  </div>
+
+  <p class="section-intro">
+    Rebalancing low-tier vs. high-tier weapon performance, addressing semi-auto input buffering, and tuning several weapons that were overperforming or underperforming in PvP.
+  </p>
+
+  <!-- HR -->
+  <div class="weapon-card nerf">
+    <div class="weapon-card-top">
+      <div class="weapon-image-wrap">
+        <img src="https://static.wikia.nocookie.net/arc-raiders/images/1/1b/Stitcher_Inspect.png/revision/latest?cb=20251106012035" alt="Hunting Rifle" loading="lazy">
+      </div>
+      <div class="weapon-info">
+        <div class="weapon-meta">
+          <span class="weapon-type">Long Firearm</span>
+          <span class="change-badge badge-nerf">Nerf</span>
+        </div>
+        <h3 class="weapon-name">Hunting Rifle</h3>
+        <p class="weapon-desc">TLDR — Body damage and Rate of Fire were too high.</p>
+      </div>
+    </div>
+    <div class="changes-section">
+      <div class="dev-note">
+        <div class="dev-note-label">Dev Note</div>
+        <p>The Stitcher's fast TTK sometimes meant getting ambushed and killed before you could react. The high headshot multiplier was a large contributor — when close enough to land head shots, TTK numbers dropped well below other weapons. These changes bring headshot TTK closer to body shot TTK.</p>
+      </div>
+      <div class="changes-grid">
+        <div class="change-row is-nerf">
+          <span class="change-label">Headshot Multiplier</span>
+          <div class="change-values">
+            <span class="val-old">30×</span>
+            <span class="arrow">→</span>
+            <span class="val-new nerf">2×</span>
+          </div>
+        </div>
+        <div class="change-row is-nerf">
+          <span class="change-label">Base Damage</span>
+          <div class="change-values">
+            <span class="val-old">80</span>
+            <span class="arrow">→</span>
+            <span class="val-new nerf">55</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KETTLE -->
+  <div class="weapon-card nerf">
+    <div class="weapon-card-top">
+      <div class="weapon-image-wrap">
+        <img src="https://static.wikia.nocookie.net/arc-raiders/images/0/03/Kettle_Inspect.png/revision/latest?cb=20251105113811" alt="Kettle Assault Rifle" loading="lazy">
+      </div>
+      <div class="weapon-info">
+        <div class="weapon-meta">
+          <span class="weapon-type">Assault Rifle</span>
+          <span class="rarity-badge rarity-common">Common</span>
+          <span class="change-badge badge-nerf">Nerf</span>
+        </div>
+        <h3 class="weapon-name">Kettle</h3>
+        <p class="weapon-desc">Semi-auto AR used as a budget SMG — damage reduced to distinguish its role.</p>
+      </div>
+    </div>
+    <div class="changes-section">
+      <div class="dev-note">
+        <div class="dev-note-label">Dev Note</div>
+        <p>The Kettle was intended for medium-range at a deliberate pace, but many players used it in close quarters as an SMG. We're reducing base damage to bring its TTK in line, but keeping the high headshot multiplier to push players toward precision play.</p>
+      </div>
+      <div class="changes-grid">
+        <div class="change-row is-nerf">
+          <span class="change-label">Base Damage</span>
+          <div class="change-values">
+            <span class="val-old">10</span>
+            <span class="arrow">→</span>
+            <span class="val-new nerf">8.5</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VENATOR -->
+  <div class="weapon-card nerf">
+    <div class="weapon-card-top">
+      <div class="weapon-image-wrap">
+        <img src="https://static.wikia.nocookie.net/arc-raiders/images/3/31/Venator_Inspect.png/revision/latest?cb=20251105115258" alt="Venator Pistol" loading="lazy">
+      </div>
+      <div class="weapon-info">
+        <div class="weapon-meta">
+          <span class="weapon-type">Pistol</span>
+          <span class="rarity-badge rarity-rare">Rare</span>
+          <span class="change-badge badge-nerf">Nerf</span>
+        </div>
+        <h3 class="weapon-name">Venator</h3>
+        <p class="weapon-desc">Dual-shot pistol still dominating PvP — second round of nerfs since 1.3.0.</p>
+      </div>
+    </div>
+    <div class="changes-section">
+      <div class="dev-note">
+        <div class="dev-note-label">Dev Note</div>
+        <p>Since the last nerfs in 1.3.0, data shows the Venator is still one of the highest-performing weapons in the game. For a weapon of this tier it should perform well — but not this well. If the damage reduction doesn't work, further ammo/cost efficiency changes may follow.</p>
+      </div>
+      <div class="changes-grid">
+        <div class="change-row is-nerf">
+          <span class="change-label">Headshot Multiplier</span>
+          <div class="change-values">
+            <span class="val-old">2.5×</span>
+            <span class="arrow">→</span>
+            <span class="val-new nerf">2.0×</span>
+          </div>
+        </div>
+        <div class="change-row is-nerf">
+          <span class="change-label">Base Damage</span>
+          <div class="change-values">
+            <span class="val-old">9</span>
+            <span class="arrow">→</span>
+            <span class="val-new nerf">8</span>
+          </div>
+        </div>
+      </div>
+      <div class="arc-note">Further nerfs to ammo consumption and cost efficiency may follow if performance remains too high.</div>
+    </div>
+  </div>
+
+  <!-- JUPITER -->
+  <div class="weapon-card buff">
+    <div class="weapon-card-top">
+      <div class="weapon-image-wrap">
+        <img src="https://static.wikia.nocookie.net/arc-raiders/images/f/f6/Jupiter_Inspecrt.png/revision/latest?cb=20251109014542" alt="Jupiter Sniper Rifle" loading="lazy">
+      </div>
+      <div class="weapon-info">
+        <div class="weapon-meta">
+          <span class="weapon-type">Sniper Rifle</span>
+          <span class="rarity-badge rarity-legendary">Legendary</span>
+          <span class="change-badge badge-buff">Buff</span>
+        </div>
+        <h3 class="weapon-name">Jupiter</h3>
+        <p class="weapon-desc">Highest headshot damage in-game — now more viable with better ADS and handling.</p>
+      </div>
+    </div>
+    <div class="changes-section">
+      <div class="dev-note">
+        <div class="dev-note-label">Dev Note</div>
+        <p>The Jupiter does the most headshot damage in the game, but it's quite difficult to hit at range and missing a shot at close range makes you a sitting target. We're improving ADS magnification for better target acquisition and reducing equip/unequip times for faster weapon swaps.</p>
+      </div>
+      <div class="changes-grid">
+        <div class="change-row is-buff">
+          <span class="change-label">ADS Magnification</span>
+          <div class="change-values">
+            <span class="val-old">~1.9×</span>
+            <span class="arrow">→</span>
+            <span class="val-new buff">~2.2×</span>
+          </div>
+        </div>
+        <div class="change-row is-buff">
+          <span class="change-label">Equip Time</span>
+          <div class="change-values">
+            <span class="val-old">1.2s</span>
+            <span class="arrow">→</span>
+            <span class="val-new buff">1.05s</span>
+          </div>
+        </div>
+        <div class="change-row is-buff">
+          <span class="change-label">Unequip Time</span>
+          <div class="change-values">
+            <span class="val-old">0.9s</span>
+            <span class="arrow">→</span>
+            <span class="val-new buff">0.75s</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APHELION -->
+  <div class="weapon-card buff">
+    <div class="weapon-card-top">
+      <div class="weapon-image-wrap">
+        <img src="https://static.wikia.nocookie.net/arc-raiders/images/e/e6/Aphelion_Inspect.png/revision/latest?cb=20251122124546" alt="Aphelion Battle Rifle" loading="lazy">
+      </div>
+      <div class="weapon-info">
+        <div class="weapon-meta">
+          <span class="weapon-type">Battle Rifle</span>
+          <span class="rarity-badge rarity-legendary">Legendary</span>
+          <span class="change-badge badge-buff">Buff</span>
+        </div>
+        <h3 class="weapon-name">Aphelion</h3>
+        <p class="weapon-desc">Legendary PvP rifle — now less bulky and more competitive.</p>
+      </div>
+    </div>
+    <div class="changes-section">
+      <div class="dev-note">
+        <div class="dev-note-label">Dev Note</div>
+        <p>The Aphelion was intended to be a PvP-focused legendary weapon, but it couldn't keep up with the pacing of other PvP options. We've made it feel less bulky and more nimble to improve its PvP viability.</p>
+      </div>
+      <div class="changes-grid">
+        <div class="change-row is-buff">
+          <span class="change-label">Base Reload Time</span>
+          <div class="change-values">
+            <span class="val-old">4.5s</span>
+            <span class="arrow">→</span>
+            <span class="val-new buff">3.5s</span>
+          </div>
+        </div>
+        <div class="change-row is-buff">
+          <span class="change-label">Time Between Shots</span>
+          <div class="change-values">
+            <span class="val-old">0.9s</span>
+            <span class="arrow">→</span>
+            <span class="val-new buff">0.7s</span>
+          </div>
+        </div>
+        <div class="change-row is-buff">
+          <span class="change-label">Vertical Recoil</span>
+          <div class="change-values">
+            <span class="val-new buff">~50% reduction</span>
+          </div>
+        </div>
+        <div class="change-row is-buff">
+          <span class="change-label">ADS Settle Speed</span>
+          <div class="change-values">
+            <span class="val-new buff">~35% faster</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ITEMS & CRAFTING -->
+  <div class="section-header">
+    <h2>Items & Crafting</h2>
+    <div class="line"></div>
+  </div>
+
+  <div class="energy-clip-note">
+    <p><strong>Energy Clip</strong> — Now available by default in the Workbench.</p>
+  </div>
+
+  <div class="item-grid">
+
+    <div class="item-card">
+      <div class="item-name">Deadline</div>
+      <div class="item-changes">
+        <div class="item-change">Value: <span class="val-up">5,000 → 6,000</span></div>
+        <div class="item-change">Trader price: <span class="val-up">15,000 → 18,000</span></div>
+        <div class="item-change">New crafting cost: <span class="val-new-craft">+ ARC Part</span></div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-name">Trailblazer</div>
+      <div class="item-changes">
+        <div class="item-change">Value: <span class="val-up">1,600 → 2,200</span></div>
+        <div class="item-change">Trader price: <span class="val-up">4,800 → 6,600</span></div>
+        <div class="item-change">New crafting cost: <span class="val-new-craft">+ ARC Part</span></div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-name">Wolfpack</div>
+      <div class="item-changes">
+        <div class="item-change">Value: <span class="val-up">5,000 → 6,000</span></div>
+        <div class="item-change">New crafting cost: <span class="val-new-craft">+ Rocketeer Driver</span></div>
+        <div class="item-change">Refined Explosive cost: <span class="val-down">Reduced</span></div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-name">Vita Spray</div>
+      <div class="item-changes">
+        <div class="item-change">Value: <span class="val-up">3,000 → 3,400</span></div>
+        <div class="item-change">New crafting cost: <span class="val-new-craft">+ Tick Pod</span></div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-name">Showstopper</div>
+      <div class="item-changes">
+        <div class="item-change">Value: <span class="val-down">2,200 → 2,100</span></div>
+        <div class="item-change">New crafting cost: <span class="val-new-craft">+ Hornet Driver</span></div>
+        <div class="item-change">Component swap: Adv. Electrical → <span class="val-new-craft">Electrical</span></div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-name">ARC Parts</div>
+      <div class="item-changes">
+        <div class="item-change">Sell value: <span class="val-down">Reduced</span> to reflect crafting & progression uses</div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    ARC Raiders — Embark Studios — Update 1.17.0
+  </footer>
+
+</div>
+
+</body>
+</html>
