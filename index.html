@@ -4,8 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TLOU II MP Mod — BETA v1.03 Patch Notes</title>
-<link href="https://fonts.googleapis.com/css2?family=IBM Plex Sans Condensed:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Special Gothic Condensed One&family=Exo+2:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-<style>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Sofia+Sans+Condensed:ital@1&display=swap" rel="stylesheet"><style>
   :root {
     --bg-deep: #0a0c10;
     --bg-card: #111520;
@@ -111,7 +110,7 @@
   }
 
   .header h1 {
-    font-family: 'Special Gothic Condensed One';
+    font-family: 'Sofia Sans Condensed';
     font-size: clamp(42px, 6vw, 72px);
     font-weight: 700;
     letter-spacing: 3px;
@@ -125,7 +124,7 @@
   }
 
   .header .subtitle {
-    font-family: 'Special Gothic Condensed One';
+    font-family: 'Sofia Sans Condensed';
     font-size: clamp(18px, 3vw, 26px);
     font-weight: 400;
     color: var(--text-secondary);
@@ -142,7 +141,7 @@
   }
 
   .section-header h2 {
-    font-family: 'Special Gothic Condensed One';
+    font-family: 'Sofia Sans Condensed';
     font-size: 28px;
     font-weight: 700;
     letter-spacing: 3px;
@@ -279,7 +278,7 @@
   .badge-mixed { color: var(--accent-orange); border: 1px solid rgba(255, 138, 43, 0.3); }
 
   .weapon-name {
-    font-family: 'Special Gothic Condensed One';
+    font-family: 'Sofia Sans Condensed';
     font-size: 36px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -385,11 +384,22 @@
     margin-bottom: 40px;
   }  
   
-  .item-list {
+  .item-grid-custom {
     display: flex;
-    grid-template-rows: repeat(auto-fill, minmax(300px, 1fr));
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .item-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 12px 16px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
     gap: 16px;
-    margin-bottom: 40px;
+    border: 1px solid transparent;
+    transition: border-color 0.2s;
   }
 
   .item-card {
@@ -405,7 +415,7 @@
   }
 
   .item-name {
-    font-family: 'Special Gothic Condensed One';
+    font-family: 'Sofia Sans Condensed';
     font-size: 20px;
     font-weight: 700;
     text-transform: uppercase;
@@ -553,6 +563,50 @@
     <br>
   </p>
 
+  <!-- HUNTING PISTOL -->
+  <div class="weapon-card buff">
+    <div class="weapon-card-top">
+      <div class="weapon-image-wrap">
+        <img src="https://www.imfdb.org/images/thumb/1/14/Abby_Examining_the_Hunting_Pistol_cropped.jpg/600px-Abby_Examining_the_Hunting_Pistol_cropped.jpg" alt="Hunting Pistol" loading="lazy">
+      </div>
+      <div class="weapon-info">
+        <div class="weapon-meta">
+          <span class="weapon-type">Short Firearm</span>
+          <span class="change-badge badge-buff">Buff</span>
+        </div>
+        <h3 class="weapon-name">Hunting Pistol</h3>
+      </div>
+    </div>
+    <div class="changes-section">
+      <div class="changes-grid">
+        <div class="change-row is-buff">
+          <span class="change-label">Mag Size</span>
+          <div class="change-values">
+            <span class="val-old">1</span>
+            <span class="arrow">→</span>
+            <span class="val-new buff">3</span>
+          </div>
+        </div>
+        <div class="change-row is-nerf">
+          <span class="change-label">Base Damage</span>
+          <div class="change-values">
+            <span class="val-old">100</span>
+            <span class="arrow">→</span>
+            <span class="val-new nerf">60</span>
+          </div>
+        </div>
+        <div class="change-row is-nerf">
+          <span class="change-label">Headshot Multiplier</span>
+          <div class="change-values">
+            <span class="val-old">30×</span>
+            <span class="arrow">→</span>
+            <span class="val-new nerf">2×</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- HR -->
   <div class="weapon-card nerf">
     <div class="weapon-card-top">
@@ -618,6 +672,27 @@
         <div class="dev-note-label">Note</div>
         <p>We reduced base damage to bring its TTK in line, and kept the high headshot multiplier to push players toward precision play.</p>
       </div>
+    <div class="changes-section">
+      <div class="dev-note">
+        <div class="dev-note-label">Note</div>
+        <p>We reduced base damage to bring its TTK in line, and kept the high headshot multiplier to push players toward precision play.</p>
+      </div>
+      <div class="change-row is-buff">
+        <span class="change-label">Rate Of Fire</span>
+        <div class="change-values">
+          <span class="val-old">88 RPM</span>
+          <span class="arrow">→</span>
+          <span class="val-new buff">133 RPM</span>
+        </div>
+      </div>
+      <div class="change-row is-buff">
+        <span class="change-label">Clip Size</span>
+        <div class="change-values">
+          <span class="val-old">6</span>
+          <span class="arrow">→</span>
+          <span class="val-new buff">7</span>
+        </div>
+      </div>
       <div class="changes-grid">
         <div class="change-row is-nerf">
           <span class="change-label">Base Damage</span>
@@ -635,23 +710,8 @@
             <span class="val-new nerf">3</span>
           </div>
         </div>
-        <div class="change-row is-buff">
-          <span class="change-label">Rate Of Fire</span>
-          <div class="change-values">
-            <span class="val-old">88 RPM</span>
-            <span class="arrow">→</span>
-            <span class="val-new buff">133 RPM</span>
-          </div>
-        </div>
-        <div class="change-row is-buff">
-          <span class="change-label">Clip Size</span>
-          <div class="change-values">
-            <span class="val-old">6</span>
-            <span class="arrow">→</span>
-            <span class="val-new buff">7</span>
-          </div>
-        </div>
       </div>
+    </div>
     </div>
   </div>
 
@@ -675,6 +735,22 @@
         <div class="dev-note-label">Note</div>
         <p>We reduced base damage to bring its TTK in line, and kept the high headshot multiplier to push players toward precision play.</p>
       </div>
+      <div class="change-row is-buff">
+        <span class="change-label">Rate Of Fire</span>
+        <div class="change-values">
+          <span class="val-old">88 RPM</span>
+          <span class="arrow">→</span>
+          <span class="val-new buff">133 RPM</span>
+        </div>
+      </div>
+      <div class="change-row is-buff">
+        <span class="change-label">Clip Size</span>
+        <div class="change-values">
+          <span class="val-old">6</span>
+          <span class="arrow">→</span>
+          <span class="val-new buff">7</span>
+        </div>
+      </div>
       <div class="changes-grid">
         <div class="change-row is-nerf">
           <span class="change-label">Base Damage</span>
@@ -692,142 +768,24 @@
             <span class="val-new nerf">3</span>
           </div>
         </div>
-        <div class="change-row is-buff">
-          <span class="change-label">Rate Of Fire</span>
-          <div class="change-values">
-            <span class="val-old">88 RPM</span>
-            <span class="arrow">→</span>
-            <span class="val-new buff">133 RPM</span>
-          </div>
-        </div>
-        <div class="change-row is-buff">
-          <span class="change-label">Clip Size</span>
-          <div class="change-values">
-            <span class="val-old">6</span>
-            <span class="arrow">→</span>
-            <span class="val-new buff">7</span>
-          </div>
-        </div>
       </div>
     </div>
   </div>
 
-  <!-- HUNTING PISTOL -->
-  <div class="weapon-card buff">
-    <div class="weapon-card-top">
-      <div class="weapon-image-wrap">
-        <img src="https://www.imfdb.org/images/thumb/1/14/Abby_Examining_the_Hunting_Pistol_cropped.jpg/600px-Abby_Examining_the_Hunting_Pistol_cropped.jpg" alt="Hunting Pistol" loading="lazy">
-      </div>
-      <div class="weapon-info">
-        <div class="weapon-meta">
-          <span class="weapon-type">Short Firearm</span>
-          <span class="change-badge badge-buff">Buff</span>
-        </div>
-        <h3 class="weapon-name">Hunting Pistol</h3>
-      </div>
-    </div>
-    <div class="changes-section">
-      <div class="changes-grid">
-        <div class="change-row is-nerf">
-          <span class="change-label">Base Damage</span>
-          <div class="change-values">
-            <span class="val-old">100</span>
-            <span class="arrow">→</span>
-            <span class="val-new nerf">60</span>
-          </div>
-        </div>
-        <div class="change-row is-buff">
-          <span class="change-label">Mag Size</span>
-          <div class="change-values">
-            <span class="val-old">1</span>
-            <span class="arrow">→</span>
-            <span class="val-new buff">3</span>
-          </div>
-        </div>
-        <div class="change-row is-nerf">
-          <span class="change-label">Headshot Multiplier</span>
-          <div class="change-values">
-            <span class="val-old">30×</span>
-            <span class="arrow">→</span>
-            <span class="val-new nerf">2×</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ISSUES -->
+ 
+ <!-- NEW FEATURES SECTION -->
   <div class="section-header">
-    <h2>Known Issues</h2>
+    <h2>New Features and Fixes</h2>
     <div class="line"></div>
   </div>
 
-  <div class="energy-clip-note">
-    <p><strong>Energy Clip</strong> — Now available by default in the Workbench.</p>
-  </div>
-
-  <div class="item-list">
-    <div class="item-card">
-      <div class="item-name">Deadline</div>
-      <div class="item-changes">
-        <div class="item-change">Value: <span class="val-up">5,000 → 6,000</span></div>
-        <div class="item-change">Trader price: <span class="val-up">15,000 → 18,000</span></div>
-        <div class="item-change">New crafting cost: <span class="val-new-craft">+ ARC Part</span></div>
-      </div>
-    </div>
-
-    <div class="item-card">
-      <div class="item-name">Trailblazer</div>
-      <div class="item-changes">
-        <div class="item-change">Value: <span class="val-up">1,600 → 2,200</span></div>
-        <div class="item-change">Trader price: <span class="val-up">4,800 → 6,600</span></div>
-        <div class="item-change">New crafting cost: <span class="val-new-craft">+ ARC Part</span></div>
-      </div>
-    </div>
-
-    <div class="item-card">
-      <div class="item-name">Wolfpack</div>
-      <div class="item-changes">
-        <div class="item-change">Value: <span class="val-up">5,000 → 6,000</span></div>
-        <div class="item-change">New crafting cost: <span class="val-new-craft">+ Rocketeer Driver</span></div>
-        <div class="item-change">Refined Explosive cost: <span class="val-down">Reduced</span></div>
-      </div>
-    </div>
-
-    <div class="item-card">
-      <div class="item-name">Vita Spray</div>
-      <div class="item-changes">
-        <div class="item-change">Value: <span class="val-up">3,000 → 3,400</span></div>
-        <div class="item-change">New crafting cost: <span class="val-new-craft">+ Tick Pod</span></div>
-      </div>
-    </div>
-
-    <div class="item-card">
-      <div class="item-name">Showstopper</div>
-      <div class="item-changes">
-        <div class="item-change">Value: <span class="val-down">2,200 → 2,100</span></div>
-        <div class="item-change">New crafting cost: <span class="val-new-craft">+ Hornet Driver</span></div>
-        <div class="item-change">Component swap: Adv. Electrical → <span class="val-new-craft">Electrical</span></div>
-      </div>
-    </div>
-
-    <div class="item-card">
-      <div class="item-name">ARC Parts</div>
-      <div class="item-changes">
-        <div class="item-change">Sell value: <span class="val-down">Reduced</span> to reflect crafting & progression uses</div>
-      </div>
-    </div>
-
-  </div>
-
-
-  <div class="attachments-to-player-note">
-    <p><strong>Animations</strong> — Anything attached to the player like the weapon or backpack doesn't animate correctly.</p>
-  </div>
-
-  <div class="audio-note">
-    <p><strong>Audio</strong> — Audio can randomly break/stop working.</p>
-  </div>
+  <ul>
+    <li>Doors don't sync properly, if another player opens a door, it might open in the wrong direction.</li>
+    <li>Anything attached to the player like the weapon or backpack doesn't animate correctly.</li>
+    <li>Audio can randomly break/stop working</li>
+    <li>Animations on other players can flicker at times</li>
+    <li>No footsteps/reload sounds from other players</li>
+  </ul>
 
   <footer class="footer">
     TLOU 2 MP Mod — Speclizer — BETA v1.03
