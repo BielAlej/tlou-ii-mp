@@ -383,12 +383,19 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 16px;
     margin-bottom: 40px;
+  }  
+  
+  .item-list {
+    display: flex;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
   }
 
   .item-card {
     background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
-    border-radius: 2px;
+    border: 2px solid var(--border-subtle);
+    border-radius: 4px;
     padding: 20px 24px;
     transition: border-color 0.3s;
   }
@@ -539,7 +546,9 @@
 
   <p>
     Most weapon stats have been adjusted to try and match the TTK, clip size and handling feeling of the original Factions. <br>
-    Since TLOU2 is originally a Single Player game, some of the base damage values and multipliers were unusually high (e.g. the Bolt Rifle had a Base Damage of 80 with a x30 headshot multiplier)<br>
+    <br>
+    Since TLOU2 is originally a Single Player game, some of the base damage values and multipliers were unusually high (e.g. the Bolt Rifle had a Base Damage of 80 with a x30 headshot multiplier).<br>
+    <br>
     We're open to feedback and actively working on improving the viability of all weapons!<br>
     <br>
   </p>
@@ -560,10 +569,6 @@
       </div>
     </div>
     <div class="changes-section">
-      <div class="dev-note">
-        <div class="dev-note-label">Note</div>
-        <p>The Stitcher's fast TTK sometimes meant getting ambushed and killed before you could react. The high headshot multiplier was a large contributor — when close enough to land head shots, TTK numbers dropped well below other weapons. These changes bring headshot TTK closer to body shot TTK.</p>
-      </div>
       <div class="changes-grid">
         <div class="change-row is-nerf">
           <span class="change-label">Base Damage</span>
@@ -761,7 +766,7 @@
     <p><strong>Energy Clip</strong> — Now available by default in the Workbench.</p>
   </div>
 
-  <div class="item-grid">
+  <div class="item-list">
 
     <div class="item-card">
       <div class="item-name">Deadline</div>
@@ -822,12 +827,7 @@
     <div class="line"></div>
   </div>
 
-  <div class="bugs-note">
-    <p>Issues we're aware of and are actively working on fixing.</p>
-  </div>
-
   <div class="item-grid">
-
     <div class="item-card">
       <div class="item-name">Deadline</div>
       <div class="item-changes">
