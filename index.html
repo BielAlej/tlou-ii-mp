@@ -519,7 +519,7 @@
   </div>
 
   <ul>
-    <li>You can highlight/mark an enemy for your team if you aim at them and press the button that would normally toggle the flashlight. On default controls that's <b>T on keyboard</b> or <b>R3 on controller</b></li>
+    <li>You can <b>mark an enemy for your team</b> if you aim at them and press the flashlight toggle keybind. On default controls that's <b>T on keyboard</b> or <b>R3 on controller</b></li>
     <li><b>Players are now based on the NPC class.</b> As a result, there should be less crashes</li>
     <li><b>Animation sync has been replaced with an entirely new system</b>, almost identical to what Naughty Dog uses in Uncharted 4 Multiplayer and Factions. Previously we were using input based animation sync which had many inconsistencies. So we have 1:1 anim sync now. As a result of moving away from input based anim sync, this should get rid of crashes that stemmed from the input system</li>
     <li><b>You can now heal</b>, you are given 1 medkit on spawn</li>
@@ -538,7 +538,10 @@
   </div>
 
   <p>
-    Most weapon stats have been adjusted to try and match the TTK, clip size and handling feeling of the original Factions. We're open to feedback and actively working on improving the viability of all weapons!
+    Most weapon stats have been adjusted to try and match the TTK, clip size and handling feeling of the original Factions. <br>
+    Since TLOU2 is originally a Single Player game, some of the base damage values and multipliers were unusually high (e.g. the Bolt Rifle had a Base Damage of 80 with a x30 headshot multiplier)<br>
+    We're open to feedback and actively working on improving the viability of all weapons!<br>
+    <br>
   </p>
 
   <!-- HR -->
@@ -704,147 +707,44 @@
     </div>
   </div>
 
-  <!-- VENATOR -->
-  <div class="weapon-card nerf">
+  <!-- HUNTING PISTOL -->
+  <div class="weapon-card buff">
     <div class="weapon-card-top">
       <div class="weapon-image-wrap">
-        <img src="https://static.wikia.nocookie.net/arc-raiders/images/3/31/Venator_Inspect.png/revision/latest?cb=20251105115258" alt="Venator Pistol" loading="lazy">
+        <img src="https://www.imfdb.org/images/thumb/1/14/Abby_Examining_the_Hunting_Pistol_cropped.jpg/600px-Abby_Examining_the_Hunting_Pistol_cropped.jpg" alt="Hunting Pistol" loading="lazy">
       </div>
       <div class="weapon-info">
         <div class="weapon-meta">
-          <span class="weapon-type">Pistol</span>
-          <span class="rarity-badge rarity-rare">Rare</span>
-          <span class="change-badge badge-nerf">Nerf</span>
+          <span class="weapon-type">Short Firearm</span>
+          <span class="change-badge badge-buff">Buff</span>
         </div>
-        <h3 class="weapon-name">Venator</h3>
-        <p class="weapon-desc">Dual-shot pistol still dominating PvP — second round of nerfs since 1.3.0.</p>
+        <h3 class="weapon-name">Hunting Pistol</h3>
       </div>
     </div>
     <div class="changes-section">
-      <div class="dev-note">
-        <div class="dev-note-label">Note</div>
-        <p>Since the last nerfs in 1.3.0, data shows the Venator is still one of the highest-performing weapons in the game. For a weapon of this tier it should perform well — but not this well. If the damage reduction doesn't work, further ammo/cost efficiency changes may follow.</p>
-      </div>
       <div class="changes-grid">
-        <div class="change-row is-nerf">
-          <span class="change-label">Headshot Multiplier</span>
-          <div class="change-values">
-            <span class="val-old">2.5×</span>
-            <span class="arrow">→</span>
-            <span class="val-new nerf">2.0×</span>
-          </div>
-        </div>
         <div class="change-row is-nerf">
           <span class="change-label">Base Damage</span>
           <div class="change-values">
-            <span class="val-old">9</span>
+            <span class="val-old">100</span>
             <span class="arrow">→</span>
-            <span class="val-new nerf">8</span>
+            <span class="val-new nerf">60</span>
           </div>
         </div>
-      </div>
-      <div class="arc-note">Further nerfs to ammo consumption and cost efficiency may follow if performance remains too high.</div>
-    </div>
-  </div>
-
-  <!-- JUPITER -->
-  <div class="weapon-card buff">
-    <div class="weapon-card-top">
-      <div class="weapon-image-wrap">
-        <img src="https://static.wikia.nocookie.net/arc-raiders/images/f/f6/Jupiter_Inspecrt.png/revision/latest?cb=20251109014542" alt="Jupiter Sniper Rifle" loading="lazy">
-      </div>
-      <div class="weapon-info">
-        <div class="weapon-meta">
-          <span class="weapon-type">Sniper Rifle</span>
-          <span class="rarity-badge rarity-legendary">Legendary</span>
-          <span class="change-badge badge-buff">Buff</span>
-        </div>
-        <h3 class="weapon-name">Jupiter</h3>
-        <p class="weapon-desc">Highest headshot damage in-game — now more viable with better ADS and handling.</p>
-      </div>
-    </div>
-    <div class="changes-section">
-      <div class="dev-note">
-        <div class="dev-note-label">Note</div>
-        <p>The Jupiter does the most headshot damage in the game, but it's quite difficult to hit at range and missing a shot at close range makes you a sitting target. We're improving ADS magnification for better target acquisition and reducing equip/unequip times for faster weapon swaps.</p>
-      </div>
-      <div class="changes-grid">
         <div class="change-row is-buff">
-          <span class="change-label">ADS Magnification</span>
+          <span class="change-label">Mag Size</span>
           <div class="change-values">
-            <span class="val-old">~1.9×</span>
+            <span class="val-old">1</span>
             <span class="arrow">→</span>
-            <span class="val-new buff">~2.2×</span>
+            <span class="val-new buff">3</span>
           </div>
         </div>
-        <div class="change-row is-buff">
-          <span class="change-label">Equip Time</span>
+        <div class="change-row is-nerf">
+          <span class="change-label">Headshot Multiplier</span>
           <div class="change-values">
-            <span class="val-old">1.2s</span>
+            <span class="val-old">30×</span>
             <span class="arrow">→</span>
-            <span class="val-new buff">1.05s</span>
-          </div>
-        </div>
-        <div class="change-row is-buff">
-          <span class="change-label">Unequip Time</span>
-          <div class="change-values">
-            <span class="val-old">0.9s</span>
-            <span class="arrow">→</span>
-            <span class="val-new buff">0.75s</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- APHELION -->
-  <div class="weapon-card buff">
-    <div class="weapon-card-top">
-      <div class="weapon-image-wrap">
-        <img src="https://static.wikia.nocookie.net/arc-raiders/images/e/e6/Aphelion_Inspect.png/revision/latest?cb=20251122124546" alt="Aphelion Battle Rifle" loading="lazy">
-      </div>
-      <div class="weapon-info">
-        <div class="weapon-meta">
-          <span class="weapon-type">Battle Rifle</span>
-          <span class="rarity-badge rarity-legendary">Legendary</span>
-          <span class="change-badge badge-buff">Buff</span>
-        </div>
-        <h3 class="weapon-name">Aphelion</h3>
-        <p class="weapon-desc">Legendary PvP rifle — now less bulky and more competitive.</p>
-      </div>
-    </div>
-    <div class="changes-section">
-      <div class="dev-note">
-        <div class="dev-note-label">Note</div>
-        <p>The Aphelion was intended to be a PvP-focused legendary weapon, but it couldn't keep up with the pacing of other PvP options. We've made it feel less bulky and more nimble to improve its PvP viability.</p>
-      </div>
-      <div class="changes-grid">
-        <div class="change-row is-buff">
-          <span class="change-label">Base Reload Time</span>
-          <div class="change-values">
-            <span class="val-old">4.5s</span>
-            <span class="arrow">→</span>
-            <span class="val-new buff">3.5s</span>
-          </div>
-        </div>
-        <div class="change-row is-buff">
-          <span class="change-label">Time Between Shots</span>
-          <div class="change-values">
-            <span class="val-old">0.9s</span>
-            <span class="arrow">→</span>
-            <span class="val-new buff">0.7s</span>
-          </div>
-        </div>
-        <div class="change-row is-buff">
-          <span class="change-label">Vertical Recoil</span>
-          <div class="change-values">
-            <span class="val-new buff">~50% reduction</span>
-          </div>
-        </div>
-        <div class="change-row is-buff">
-          <span class="change-label">ADS Settle Speed</span>
-          <div class="change-values">
-            <span class="val-new buff">~35% faster</span>
+            <span class="val-new nerf">2×</span>
           </div>
         </div>
       </div>
