@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TLOU II MP Mod — BETA v1.03 Patch Notes</title>
+<title>TLOU II MP Mod — Patch Notes</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Sofia+Sans+Condensed&display=swap" rel="stylesheet"><style>
   :root {
     --bg-deep: #101114;
@@ -108,9 +108,6 @@
     text-transform: uppercase;
     line-height: 1;
     margin-bottom: 8px;
-    background: linear-gradient(180deg, #ffffff 30%, #8892a8 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
@@ -189,7 +186,6 @@
 
   .weapon-image-wrap {
     position: relative;
-    background: linear-gradient(135deg, #0d1018 0%, #151b2a 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -517,262 +513,28 @@
   <header class="header">
     <div class="version-tag">BETA</div>
     <h1>TLOU 2 MP Mod</h1>
-    <div class="subtitle">v1.03 - Patch Notes</div>
+    <div class="subtitle">Patch Notes</div>
   </header>
 
  <!-- NEW FEATURES SECTION -->
   <div class="section-header">
-    <h2>New Features and Fixes</h2>
+    <h2>Current Version</h2>
+    <div class="line"></div>
+  </div>
+  BETA - v1.03
+
+ <!-- NEW FEATURES SECTION -->
+  <div class="section-header">
+    <h2>Previous Versions's Patch Notes</h2>
     <div class="line"></div>
   </div>
 
   <ul>
-    <li>You can <strong>mark an enemy for your team</strong> if you aim at them and press the flashlight toggle keybind. On default controls that's <strong>T on keyboard</strong> or <strong>R3 on controller</strong></li>
-    <li><strong>Players are now based on the NPC class.</strong> As a result, there should be less crashes</li>
-    <li><strong>Animation sync has been replaced with an entirely new system</strong>, almost identical to what Naughty Dog uses in Uncharted 4 Multiplayer and Factions. Previously we were using input based animation sync which had many inconsistencies. So we have 1:1 anim sync now. As a result of moving away from input based anim sync, this should get rid of crashes that stemmed from the input system</li>
-    <li><strong>You can now heal</strong>, you are given 1 medkit on spawn</li>
-    <li><strong>Spectate after death</strong></li>
-    <li><strong>Team mates show on radar</strong></li>
-    <li><strong>Voice lines now play when you start a match</strong></li>
-    <li><strong>Kill feed added</strong></li>
-    <li><strong>Listen mode now shows enemies like it would in SP rather than an outline</strong></li>
-    <li><strong>Shotguns fixed</strong></li>
-  </ul>
-
-  <!-- WEAPONS SECTION -->
-  <div class="section-header">
-    <h2>Weapon Balancing</h2>
-    <div class="line"></div>
-  </div>
-
-  <p>
-    Most weapon stats have been adjusted to try and match the TTK, clip size and handling feeling of the original Factions. <br>
-    <br>
-    Since TLOU2 is originally a Single Player game, some of the base damage values and multipliers were unusually high (e.g. the Bolt Rifle had a Base Damage of 80 with a x30 headshot multiplier).<br>
-    <br>
-    We're open to feedback and actively working on improving the viability of all weapons!<br>
-    <br>
-  </p>
-
-  <!-- HUNTING PISTOL -->
-  <div class="weapon-card buff">
-    <div class="weapon-card-top">
-      <div class="weapon-image-wrap">
-        <img src="https://www.imfdb.org/images/thumb/1/14/Abby_Examining_the_Hunting_Pistol_cropped.jpg/600px-Abby_Examining_the_Hunting_Pistol_cropped.jpg" alt="Hunting Pistol" loading="lazy">
-      </div>
-      <div class="weapon-info">
-        <div class="weapon-meta">
-          <span class="weapon-type">Short Firearm</span>
-          <span class="change-badge badge-buff">Buff</span>
-        </div>
-        <h3 class="weapon-name">Hunting Pistol</h3>
-      </div>
-    </div>
-    <div class="changes-section">
-      <div class="changes-grid">
-        <div class="change-row is-buff">
-          <span class="change-label">Mag Size</span>
-          <div class="change-values">
-            <span class="val-old">1</span>
-            <span class="arrow">→</span>
-            <span class="val-new buff">3</span>
-          </div>
-        </div>
-        <div class="change-row is-nerf">
-          <span class="change-label">Base Damage</span>
-          <div class="change-values">
-            <span class="val-old">100</span>
-            <span class="arrow">→</span>
-            <span class="val-new nerf">60</span>
-          </div>
-        </div>
-        <div class="change-row is-nerf">
-          <span class="change-label">Headshot Multiplier</span>
-          <div class="change-values">
-            <span class="val-old">30×</span>
-            <span class="arrow">→</span>
-            <span class="val-new nerf">2×</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- BERETTA -->
-  <div class="weapon-card mixed">
-    <div class="weapon-card-top">
-      <div class="weapon-image-wrap">
-        <img src="https://www.imfdb.org/images/thumb/f/fc/TLOUPartIIBerettaBlackGrip.jpeg/600px-TLOUPartIIBerettaBlackGrip.jpeg" alt="Pistol Beretta" loading="lazy">
-      </div>
-      <div class="weapon-info">
-        <div class="weapon-meta">
-          <span class="weapon-type">Short Firearm</span>
-          <span class="change-badge badge-mixed">Mixed</span>
-        </div>
-        <h3 class="weapon-name">Beretta</h3>
-        <p class="weapon-desc">A light handgun with a high rate of fire and ample ammunition.</p>
-      </div>
-    </div>
-    <div class="changes-section">
-      <div class="dev-note">
-        <div class="dev-note-label">Note</div>
-        <p>We reduced base damage to bring its TTK in line, and kept the high headshot multiplier to push players toward precision play.</p>
-      </div>
-      <div class="changes-grid">
-        <div class="change-row is-buff">
-          <span class="change-label">Rate Of Fire</span>
-          <div class="change-values">
-            <span class="val-old">88 RPM</span>
-            <span class="arrow">→</span>
-            <span class="val-new buff">133 RPM</span>
-          </div>
-        </div>
-        <div class="change-row is-buff">
-          <span class="change-label">Clip Size</span>
-          <div class="change-values">
-            <span class="val-old">6</span>
-            <span class="arrow">→</span>
-            <span class="val-new buff">7</span>
-          </div>
-        </div>
-        <div class="change-row is-nerf">
-          <span class="change-label">Base Damage</span>
-          <div class="change-values">
-            <span class="val-old">34</span>
-            <span class="arrow">→</span>
-            <span class="val-new nerf">20</span>
-          </div>
-        </div>
-        <div class="change-row is-nerf">
-          <span class="change-label">Headshot Multiliper</span>
-          <div class="change-values">
-            <span class="val-old">30</span>
-            <span class="arrow">→</span>
-            <span class="val-new nerf">3</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- GLOCK -->
-  <div class="weapon-card mixed">
-    <div class="weapon-card-top">
-      <div class="weapon-image-wrap">
-        <img src="https://www.imfdb.org/images/thumb/2/24/TLOUPartII_MilitaryPistol-1.jpeg/600px-TLOUPartII_MilitaryPistol-1.jpeg" alt="Pistol Glock" loading="lazy">
-      </div>
-      <div class="weapon-info">
-        <div class="weapon-meta">
-          <span class="weapon-type">Short Firearm</span>
-          <span class="change-badge badge-mixed">Mixed</span>
-        </div>
-        <h3 class="weapon-name">Glock</h3>
-        <p class="weapon-desc">A light handgun with a high rate of fire and ample ammunition.</p>
-      </div>
-    </div>
-    <div class="changes-section">
-      <div class="dev-note">
-        <div class="dev-note-label">Note</div>
-        <p>We reduced base damage to bring its TTK in line, and kept the high headshot multiplier to push players toward precision play.</p>
-      </div>
-      <div class="changes-grid">
-        <div class="change-row is-buff">
-          <span class="change-label">Rate Of Fire</span>
-          <div class="change-values">
-            <span class="val-old">88 RPM</span>
-            <span class="arrow">→</span>
-            <span class="val-new buff">133 RPM</span>
-          </div>
-        </div>
-        <div class="change-row is-buff">
-          <span class="change-label">Clip Size</span>
-          <div class="change-values">
-            <span class="val-old">6</span>
-            <span class="arrow">→</span>
-            <span class="val-new buff">7</span>
-          </div>
-        </div>
-        <div class="change-row is-nerf">
-          <span class="change-label">Base Damage</span>
-          <div class="change-values">
-            <span class="val-old">34</span>
-            <span class="arrow">→</span>
-            <span class="val-new nerf">20</span>
-          </div>
-        </div>
-        <div class="change-row is-nerf">
-          <span class="change-label">Headshot Multiliper</span>
-          <div class="change-values">
-            <span class="val-old">30</span>
-            <span class="arrow">→</span>
-            <span class="val-new nerf">3</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-   <!-- HR -->
-  <div class="weapon-card nerf">
-    <div class="weapon-card-top">
-      <div class="weapon-image-wrap">
-        <img src="https://www.imfdb.org/images/thumb/2/22/TLOUPart2R700-2.jpg/600px-TLOUPart2R700-2.jpg" alt="Bolt Rifle" loading="lazy">
-      </div>
-      <div class="weapon-info">
-        <div class="weapon-meta">
-          <span class="weapon-type">Long Firearm</span>
-          <span class="change-badge badge-nerf">Nerf</span>
-        </div>
-        <h3 class="weapon-name">Bolt Rifle</h3>
-        <p class="weapon-desc">Two shots to down and pinpoint accurate at range.</p>
-      </div>
-    </div>
-    <div class="changes-section">
-      <div class="changes-grid">
-        <div class="change-row is-nerf">
-          <span class="change-label">Base Damage</span>
-          <div class="change-values">
-            <span class="val-old">80</span>
-            <span class="arrow">→</span>
-            <span class="val-new nerf">55</span>
-          </div>
-        </div>
-        <div class="change-row is-nerf">
-          <span class="change-label">Headshot Multiplier</span>
-          <div class="change-values">
-            <span class="val-old">30×</span>
-            <span class="arrow">→</span>
-            <span class="val-new nerf">2×</span>
-          </div>
-        </div>
-        <div class="change-row is-nerf">
-          <span class="change-label">Mag Size</span>
-          <div class="change-values">
-            <span class="val-old">3</span>
-            <span class="arrow">→</span>
-            <span class="val-new nerf">1</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
- <!-- ISSUES SECTION -->
-  <div class="section-header">
-    <h2>Known Issues</h2>
-    <div class="line"></div>
-  </div>
-
-  <ul>
-    <li>Doors don't sync properly, if another player opens a door, it might open in the wrong direction.</li>
-    <li>Anything attached to the player like the weapon or backpack doesn't animate correctly.</li>
-    <li>Audio can randomly break/stop working</li>
-    <li>Animations on other players can flicker at times</li>
-    <li>No footsteps/reload sounds from other players</li>
+    <li><a href="patches/beta_v1_03.html">BETA v1.03</a></li>
   </ul>
 
   <footer class="footer">
-    TLOU 2 MP Mod — Speclizer — BETA v1.03
+    TLOU 2 MP Mod — BETA v1.03 — Mod By Speclizer — PatchNotes by Vontadeh
   </footer>
 
 </div>
