@@ -493,16 +493,28 @@
   .weapon-card:nth-child(4) { animation-delay: 0.4s; }
   .weapon-card:nth-child(5) { animation-delay: 0.5s; }
 
-  .arc-note {
-    background: rgba(255, 215, 74, 0.04);
-    border-left: 2px solid rgba(255, 215, 74, 0.2);
-    padding: 12px 20px;
-    border-radius: 0 2px 2px 0;
-    margin-top: 8px;
-    font-size: 12px;
-    color: var(--text-secondary);
-    font-style: italic;
+  a:link, a:visited {
+    background: var(--bg-card);
+    border: 2px solid var(--border-subtle);
+
+    color: var(--text-primary);
+    padding: 15px 25px;
+    border-radius: 2px;
+    text-align: center;
+
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;    
+
+    overflow: hidden;
+    position: relative;
+    transition: border-color 0.3s ease, transform 0.2s ease;
   }
+
+  a:hover, a:active {
+    background-color: rgba(75, 136, 177, 0.2);
+  }
+
 </style>
 </head>
 <body>
